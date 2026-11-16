@@ -1,0 +1,4 @@
+# unit check PASS: greedy_hess(h_b=5,l_b=3) == ssnf_kv_greedy_hess(l_b=3)
+# Hess-oracle SHARED=1 (MXINT5 base, unshared=5, +1 shared -> 6-bit grid) | NousResearch/Llama-2-7b-hf | 329w | W+K+V
+BF16                                   4.9514
+HESS-share1 gs8 (5.3750b)                 5.0021 (+0.0507) (+1.02%)  [PASS]

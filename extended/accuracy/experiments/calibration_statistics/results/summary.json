@@ -1,0 +1,74 @@
+{
+  "Llama-3.1-8B": {
+    "bf16": {
+      "ppl": 5.586259011378145,
+      "target_count": 288936,
+      "windows": 282,
+      "raw_summary_sha256": "9e47f9c4173a008c31c290b707ee9f7ea5e997306f6b7cdd8a32e21f9814e853"
+    },
+    "ssnf_f00 (none)": {
+      "ppl": 5.840556659865133,
+      "target_count": 288936,
+      "windows": 282,
+      "raw_summary_sha256": "03944b6aad5843705d93ac0201d0bde6dd6885bc9dc8475516d4eff3b511dcd7",
+      "ppl_increase_pct": 4.552199387264921
+    },
+    "ssnf_f10 (W)": {
+      "ppl": 5.771572112026548,
+      "target_count": 288936,
+      "windows": 282,
+      "raw_summary_sha256": "402c958919481e59955cd269d0ab564baa1a832f796a48a050e74e1d4d4d57b2",
+      "ppl_increase_pct": 3.3173023354440945
+    },
+    "ssnf_f01 (K)": {
+      "ppl": 5.813647265317073,
+      "target_count": 288936,
+      "windows": 282,
+      "raw_summary_sha256": "f34ebd2ad879924dd37844dc87333c49f88550820a6b3988c0fe97b8d2b6499e",
+      "ppl_increase_pct": 4.070492497318545
+    },
+    "ssnf_f11 (W+K)": {
+      "ppl": 5.74900505164741,
+      "target_count": 288936,
+      "windows": 282,
+      "raw_summary_sha256": "79f11dd2d31df5c89256b469fc520565f0a8733096bc8e9ad3be198fd2c4cf88",
+      "ppl_increase_pct": 2.9133278628467263
+    }
+  },
+  "Mistral-7B-v0.3": {
+    "bf16": {
+      "ppl": 4.831490211902496,
+      "target_count": 331725,
+      "windows": 323,
+      "raw_summary_sha256": "c83c1247428e32dbd23dd92b6cb764464919a631e193d7d3638766b045d20de0"
+    },
+    "ssnf_f00 (none)": {
+      "ppl": 4.906650546924827,
+      "target_count": 331725,
+      "windows": 323,
+      "raw_summary_sha256": "7c40ccdc8527bd2f14618c8e33d70e47c05fe7d0b35b8819f75e465aa9d7a33d",
+      "ppl_increase_pct": 1.5556346329166137
+    },
+    "ssnf_f10 (W)": {
+      "ppl": 4.884475294485365,
+      "target_count": 331725,
+      "windows": 323,
+      "raw_summary_sha256": "958ce692361414c8e1f37d2be617c3063fee2f66676b261e70efec90b85abddc",
+      "ppl_increase_pct": 1.0966612837657985
+    },
+    "ssnf_f01 (K)": {
+      "ppl": 4.9017831922219095,
+      "target_count": 331725,
+      "windows": 323,
+      "raw_summary_sha256": "4d5fa5f2cc218ebcdb9197397c2415c0edf47ffbe28c5f7c5916e7528a2a01df",
+      "ppl_increase_pct": 1.454892325896573
+    },
+    "ssnf_f11 (W+K)": {
+      "ppl": 4.878496057102625,
+      "target_count": 331725,
+      "windows": 323,
+      "raw_summary_sha256": "69a60750f81b0ae173ed459991a4139fde20dba154aeae1ab7e99739e6768156",
+      "ppl_increase_pct": 0.9729057317414913
+    }
+  }
+}

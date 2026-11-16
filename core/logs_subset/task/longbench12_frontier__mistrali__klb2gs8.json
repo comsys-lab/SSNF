@@ -1,0 +1,53 @@
+{
+  "cfg": "ssnf_fq",
+  "model": "mistralai/Mistral-7B-Instruct-v0.3",
+  "maxlen": 8192,
+  "chat": true,
+  "rouge_impl": "rouge-pkg",
+  "per_task": {
+    "qasper": 39.11,
+    "qmsum": 23.97,
+    "multi_news": 27.69,
+    "trec": 74.0,
+    "triviaqa": 88.45,
+    "samsum": 46.22,
+    "lcc": 57.73,
+    "repobench-p": 56.83,
+    "hotpotqa": 43.64,
+    "2wikimqa": 39.25,
+    "musique": 26.96,
+    "passage_retrieval_en": 62.5
+  },
+  "per_task_se": {
+    "qasper": 2.59,
+    "qmsum": 0.5,
+    "multi_news": 0.47,
+    "trec": 3.11,
+    "triviaqa": 2.0,
+    "samsum": 1.34,
+    "lcc": 1.43,
+    "repobench-p": 1.4,
+    "hotpotqa": 3.11,
+    "2wikimqa": 3.16,
+    "musique": 2.8,
+    "passage_retrieval_en": 3.43
+  },
+  "avg": 48.86,
+  "avg_se": 0.68,
+  "counts": {
+    "qasper": 200,
+    "qmsum": 200,
+    "multi_news": 200,
+    "trec": 200,
+    "triviaqa": 200,
+    "samsum": 200,
+    "lcc": 500,
+    "repobench-p": 500,
+    "hotpotqa": 200,
+    "2wikimqa": 200,
+    "musique": 200,
+    "passage_retrieval_en": 200
+  },
+  "load_s": 62.5,
+  "eval_s": 4650.8
+}

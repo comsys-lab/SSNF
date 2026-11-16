@@ -1,0 +1,60 @@
+{
+  "created_utc": "2026-10-25T02:03:52.002060+00:00",
+  "gpu_uuid": "GPU-dbfb9f75-d284-779b-8c45-0b7f1f7f6a2f",
+  "formats": [
+    "bf16",
+    "mxfp6w_wkv",
+    "ssnf_wkv"
+  ],
+  "fixed_context_batches": {
+    "2048": [
+      1,
+      4,
+      8
+    ],
+    "16384": [
+      1
+    ]
+  },
+  "full_output_tokens": 256,
+  "rounds": 3,
+  "format_orders": [
+    [
+      "bf16",
+      "mxfp6w_wkv",
+      "ssnf_wkv"
+    ],
+    [
+      "mxfp6w_wkv",
+      "ssnf_wkv",
+      "bf16"
+    ],
+    [
+      "ssnf_wkv",
+      "bf16",
+      "mxfp6w_wkv"
+    ]
+  ],
+  "timing_minimum_decode_seconds_per_block": 10,
+  "cycles_rule": "After all format pilots, ceil(12 / fastest full-trial decode seconds) per context/batch, common across formats; maximum desired8 before revisiting time estimate. Freeze before main timing.",
+  "capacity_candidates": [
+    "B0-1",
+    "B0",
+    "B0+1"
+  ],
+  "capacity_warmup_policy": "0 for boundary probes after passing full-context small-B pilot; no speed claims from un-warmed capacity timings",
+  "success": "Full256output and no preemption and all-B final-length decode; exact fixed timing additionally all255decode steps at B.",
+  "failure": "Insufficient-page prefill admission block or preemption may reject simultaneous capacity; arbitrary errors/timeouts inconclusive.",
+  "budget": "Target<=1.75h combined; parent allows2h if needed after ETA notice.",
+  "primary_timing": {
+    "start": "first barrier-released nonempty scheduler row.t, after scheduling and before execute_model",
+    "end": "bounds.end after all output observations and torch.cuda.synchronize",
+    "numerator": "255 * batch for256-output generation",
+    "scope": "Synchronized post-prefill diagnostic including async drain, excluding first scheduler call; not production request latency",
+    "auxiliary": [
+      "pure engine.step sum",
+      "last request output minus release scheduler t",
+      "last output minus max first output"
+    ]
+  }
+}

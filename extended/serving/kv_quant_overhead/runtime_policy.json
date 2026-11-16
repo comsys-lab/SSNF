@@ -1,0 +1,19 @@
+{
+  "frozen_utc": "2026-10-25T03:21:08.439030+00:00",
+  "original_cache": "split_cache_frozen.json",
+  "frozen_cache": "split_cache_frozen.json",
+  "sha256": "d471395754560b75a1ca4cf6e77d4ed826d23d15f5127a258c30d9b658c4c26e",
+  "entries": 24,
+  "required_keys": {
+    "6144,4096,16,8": 4,
+    "6144,4096,128,8": 2,
+    "4096,4096,16,8": 4,
+    "4096,4096,128,8": 3,
+    "28672,4096,16,8": 3,
+    "28672,4096,128,8": 1,
+    "4096,14336,16,8": 4,
+    "4096,14336,128,8": 3
+  },
+  "scope": "Identical completed-Energy split-K choices copied independently into every S4 worker; original/frozen/run-local hashes must remain unchanged. M1/M16 use bucket16; M128 uses bucket128. Triton tile autotuning is not frozen; selected tiles are captured per case.",
+  "fixed_batch_distinction": "S1 uses independent empty run-local split-K caches and includes split-K autotuning variability. S4 fixes split-K only; process-local tile autotuning remains active. S4 and S1 are not a causal runtime decomposition."
+}

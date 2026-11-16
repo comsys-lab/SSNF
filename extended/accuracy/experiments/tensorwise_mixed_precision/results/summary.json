@@ -1,0 +1,65 @@
+{
+  "bf16_reference": {
+    "wikitext2_ppl": {
+      "Llama-3.1-8B": {
+        "ppl": 5.586259011378145,
+        "target_count": 288936,
+        "windows": 282,
+        "raw_summary_sha256": "9e47f9c4173a008c31c290b707ee9f7ea5e997306f6b7cdd8a32e21f9814e853"
+      },
+      "Mistral-7B-v0.3": {
+        "ppl": 4.831490211902496,
+        "target_count": 331725,
+        "windows": 323,
+        "raw_summary_sha256": "c83c1247428e32dbd23dd92b6cb764464919a631e193d7d3638766b045d20de0"
+      }
+    },
+    "gsm8k_llama31_8b": {
+      "strict_correct": 683,
+      "questions": 1319,
+      "pct": 51.78165276724791,
+      "nshot": 5,
+      "max_new_tokens": 256
+    }
+  },
+  "wikitext2_ppl": {
+    "_note": "Full-test PPL from the frozen-map runs (verified.py); raw outputs were kept on the evaluation host.",
+    "Llama-3.1-8B": {
+      "ssnf": 5.749281,
+      "tensorwise_mxfp4_mxfp6": 6.043057,
+      "windows": 282,
+      "targets": 288936
+    },
+    "Mistral-7B-v0.3": {
+      "ssnf": 4.879528,
+      "tensorwise_mxfp4_mxfp6": 4.96216,
+      "windows": 323,
+      "targets": 331725
+    }
+  },
+  "storage_bytes_2k_reference": {
+    "weight_cap": 5016394752,
+    "weight_used": 5015346204,
+    "key_cap": 46138368,
+    "key_used": 45614084,
+    "value_cap": 37749760,
+    "value_used": 37225476
+  },
+  "gsm8k_llama31_8b": {
+    "questions": 1319,
+    "metric": "strict_accuracy",
+    "ssnf_pct": 47.99090219863533,
+    "tensorwise_mxfp_pct": 38.96891584533738
+  },
+  "longbench_llama31_8b_instruct_validation96": {
+    "bf16": 52.13,
+    "ssnf": 51.87,
+    "tensorwise_mxfp4_mxfp6": 51.31108490980905,
+    "examples": 96,
+    "max_input_tokens": 16384,
+    "paired_bootstrap_ci95_ssnf_minus_tensorwise": [
+      -2.84,
+      4.33
+    ]
+  }
+}

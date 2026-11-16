@@ -1,0 +1,1 @@
+{"cfg": "ssnf_fq", "model": "mistralai/Mistral-7B-v0.3", "nshot": 5, "n": 1319, "strict_acc": 0.3351, "strict_se": 0.013, "flex_acc": 0.3359, "flex_se": 0.013, "load_s": 67.3, "gen_s": 100.1}

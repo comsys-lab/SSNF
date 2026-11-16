@@ -1,0 +1,1 @@
+{"cfg": "mxfp8_fqw", "model": "NousResearch/Llama-2-7b-hf", "nshot": 5, "n": 1319, "strict_acc": 0.1448, "strict_se": 0.0097, "flex_acc": 0.1456, "flex_se": 0.0097, "load_s": 11.8, "gen_s": 112.5}

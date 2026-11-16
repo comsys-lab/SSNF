@@ -1,0 +1,3 @@
+method,weight_activation_dtype,outlier_fraction,ppl,target_count,windows,raw_results,delta_bf16,ssnf_minus_method_ppl
+"KVQuant-3, 1% FP16 outlier preservation",float16,0.01,5.02099198229038,338534,330,<local>/kvquant3,0.06997265873027025,-0.031868134776181556
+"KVQuant-4, 1% FP16 outlier preservation",float16,0.01,4.96674652136619,338534,330,<local>/kvquant4,0.015727197806080007,0.02237732614800869

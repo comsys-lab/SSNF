@@ -1,0 +1,94 @@
+--- a/KIVI/models/llama_kivi.py
++++ b/KIVI/models/llama_kivi.py
+@@ -35,7 +35,7 @@
+         self.v_bits = config.v_bits
+         self.group_size = config.group_size
+         self.residual_length = config.residual_length
+-        assert getattr(config, "use_flash", False), "currently KIVI is only available for flash-attn. Please add ```config.use_flash = True```"
++        # Compatibility: retain the official eager prefill implementation.
+ 
+         if (self.head_dim * self.num_heads) != self.hidden_size:
+             raise ValueError(
+--- a/KVQuant/quant/llama_simquant.py
++++ b/KVQuant/quant/llama_simquant.py
+@@ -1,4 +1,5 @@
+ import time
++CHECKPOINT_DIR = None
+ 
+ import torch
+ import torch.nn as nn
+@@ -154,6 +155,9 @@
+     layers = model.model.layers
+ 
+     model.model.embed_tokens = model.model.embed_tokens.to(dev)
++    # Transformers 4.43 also computes RoPE once in LlamaModel before Catcher.
++    if hasattr(model.model, "rotary_emb"):
++        model.model.rotary_emb = model.model.rotary_emb.to(dev)
+     model.model.norm = model.model.norm.to(dev)
+     layers[0] = layers[0].to(dev)
+ 
+@@ -256,31 +260,41 @@
+ 
+         for name in subset:
+ 
+-            if fisher is not None:
+-                key = 'model.layers.%d.%s' % (i, name)
+-                key = key + '.weight'
+-                fisher_info = fisher[key].cpu()
++            checkpoint = CHECKPOINT_DIR / ('model.layers.%d.%s.pickle' % (i, name)) if CHECKPOINT_DIR else None
++            if checkpoint is not None and checkpoint.exists():
++                with checkpoint.open('rb') as handle:
++                    quantizers['model.layers.%d.%s' % (i, name)] = pickle.load(handle)
+             else:
+-                fisher_info = None
+-
+-            #cap is always onlyK
+-            if "k_proj" in name:
+-                if cap_outliers == -1:
++                if fisher is not None:
++                    key = 'model.layers.%d.%s' % (i, name)
++                    key = key + '.weight'
++                    fisher_info = fisher[key].cpu()
++                else:
++                    fisher_info = None
++
++                #cap is always onlyK
++                if "k_proj" in name:
++                    if cap_outliers == -1:
++                        cap = False
++                    else:
++                        cap = True
++                else:
+                     cap = False
+-                else:
+-                    cap = True
+-            else:
+-                cap = False
+-
+-            quantizers['model.layers.%d.%s' % (i, name)] = simquant[name].quantize(
+-                include_sparse=include_sparse,
+-                sparsity_threshold=sparsity_threshold,
+-                nuq=nuq,
+-                fisher=fisher_info,
+-                norm=norm,
+-                cap_outliers=cap,
+-                first_few_fp16=first_few_fp16
+-            )
++
++                quantizers['model.layers.%d.%s' % (i, name)] = simquant[name].quantize(
++                    include_sparse=include_sparse,
++                    sparsity_threshold=sparsity_threshold,
++                    nuq=nuq,
++                    fisher=fisher_info,
++                    norm=norm,
++                    cap_outliers=cap,
++                    first_few_fp16=first_few_fp16
++                )
++                if checkpoint is not None:
++                    with checkpoint.with_suffix('.tmp').open('wb') as handle:
++                        pickle.dump(quantizers['model.layers.%d.%s' % (i, name)], handle, protocol=pickle.HIGHEST_PROTOCOL)
++                    checkpoint.with_suffix('.tmp').replace(checkpoint)
++            print('Quantizer complete: layer %d %s' % (i, name), flush=True)
+             simquant[name].free()
+ 
+         layers[i] = layer.cpu()

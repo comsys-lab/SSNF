@@ -1,0 +1,17 @@
+{
+  "model": "Llama-3.1-8B",
+  "corpus": "WikiText-2 test",
+  "scope": "weights only",
+  "bf16_ppl": 5.587381164331922,
+  "ssnf_3_16_h": {
+    "ppl": 5.680550192501462,
+    "bits_per_weight": 5.500008216271033,
+    "ppl_increase_pct": 1.6674901072492032
+  },
+  "ams_quant_fp5.33 (ams6_g3_mse)": {
+    "ppl": 5.7265366062434495,
+    "bits_per_weight": 5.341654850886418,
+    "ppl_increase_pct": 2.490530676515368
+  },
+  "ssnf_extra_bits_pct": 2.9645001372250235
+}

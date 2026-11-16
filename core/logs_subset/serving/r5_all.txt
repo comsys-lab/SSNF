@@ -1,0 +1,220 @@
+### cfg=bf16 ctx=16384 gpu=0 round=1
+THRUPUT cfg=bf16 N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=1 (min(maxseq,kv_fit)=1) | wall=1079.78s gen_tok=24576 tok_s=22.8 req_s=0.089
+### cfg=mxfp6w_wkv ctx=16384 gpu=0 round=1
+THRUPUT cfg=mxfp6w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=14 (min(maxseq,kv_fit)=14) | wall=686.28s gen_tok=24576 tok_s=35.8 req_s=0.140
+### cfg=bf16 ctx=16384 gpu=0 round=2
+THRUPUT cfg=bf16 N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=1 (min(maxseq,kv_fit)=1) | wall=1080.92s gen_tok=24576 tok_s=22.7 req_s=0.089
+### cfg=mxfp6w_wkv ctx=16384 gpu=0 round=2
+THRUPUT cfg=mxfp6w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=14 (min(maxseq,kv_fit)=14) | wall=686.10s gen_tok=24576 tok_s=35.8 req_s=0.140
+### cfg=bf16 ctx=16384 gpu=0 round=3
+THRUPUT cfg=bf16 N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=1 (min(maxseq,kv_fit)=1) | wall=1082.45s gen_tok=24576 tok_s=22.7 req_s=0.089
+### cfg=mxfp6w_wkv ctx=16384 gpu=0 round=3
+THRUPUT cfg=mxfp6w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=14 (min(maxseq,kv_fit)=14) | wall=686.19s gen_tok=24576 tok_s=35.8 req_s=0.140
+### cfg=bf16 ctx=16384 gpu=0 round=4
+THRUPUT cfg=bf16 N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=1 (min(maxseq,kv_fit)=1) | wall=1081.93s gen_tok=24576 tok_s=22.7 req_s=0.089
+### cfg=mxfp6w_wkv ctx=16384 gpu=0 round=4
+THRUPUT cfg=mxfp6w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=14 (min(maxseq,kv_fit)=14) | wall=685.79s gen_tok=24576 tok_s=35.8 req_s=0.140
+### cfg=bf16 ctx=16384 gpu=0 round=5
+THRUPUT cfg=bf16 N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=1 (min(maxseq,kv_fit)=1) | wall=1081.51s gen_tok=24576 tok_s=22.7 req_s=0.089
+### cfg=mxfp6w_wkv ctx=16384 gpu=0 round=5
+THRUPUT cfg=mxfp6w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=14 (min(maxseq,kv_fit)=14) | wall=685.34s gen_tok=24576 tok_s=35.9 req_s=0.140
+### cfg=bf16 ctx=8192 gpu=0 round=6
+THRUPUT cfg=bf16 N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=3 (min(maxseq,kv_fit)=3) | wall=564.82s gen_tok=32768 tok_s=58.0 req_s=0.227
+### cfg=mxfp6w_wkv ctx=2048 gpu=0 round=6
+THRUPUT cfg=mxfp6w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=106 (min(maxseq,kv_fit)=106) | wall=223.60s gen_tok=65536 tok_s=293.1 req_s=1.145
+### cfg=bf16 ctx=8192 gpu=0 round=7
+THRUPUT cfg=bf16 N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=3 (min(maxseq,kv_fit)=3) | wall=564.20s gen_tok=32768 tok_s=58.1 req_s=0.227
+### cfg=mxfp6w_wkv ctx=2048 gpu=0 round=7
+THRUPUT cfg=mxfp6w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=106 (min(maxseq,kv_fit)=106) | wall=223.58s gen_tok=65536 tok_s=293.1 req_s=1.145
+### cfg=bf16 ctx=8192 gpu=1 round=1
+THRUPUT cfg=bf16 N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=3 (min(maxseq,kv_fit)=3) | wall=561.77s gen_tok=32768 tok_s=58.3 req_s=0.228
+### cfg=mxfp8w_wkv ctx=16384 gpu=1 round=1
+THRUPUT cfg=mxfp8w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=614.62s gen_tok=24576 tok_s=40.0 req_s=0.156
+### cfg=bf16 ctx=8192 gpu=1 round=2
+THRUPUT cfg=bf16 N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=3 (min(maxseq,kv_fit)=3) | wall=561.81s gen_tok=32768 tok_s=58.3 req_s=0.228
+### cfg=mxfp8w_wkv ctx=16384 gpu=1 round=2
+THRUPUT cfg=mxfp8w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=614.31s gen_tok=24576 tok_s=40.0 req_s=0.156
+### cfg=bf16 ctx=8192 gpu=1 round=3
+THRUPUT cfg=bf16 N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=3 (min(maxseq,kv_fit)=3) | wall=562.11s gen_tok=32768 tok_s=58.3 req_s=0.228
+### cfg=mxfp8w_wkv ctx=16384 gpu=1 round=3
+THRUPUT cfg=mxfp8w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=613.96s gen_tok=24576 tok_s=40.0 req_s=0.156
+### cfg=bf16 ctx=8192 gpu=1 round=4
+### cfg=mxfp8w_wkv ctx=16384 gpu=1 round=4
+### cfg=bf16 ctx=8192 gpu=1 round=5
+### cfg=mxfp8w_wkv ctx=16384 gpu=1 round=5
+### cfg=mxfp8w_wkv ctx=16384 gpu=1 round=6
+THRUPUT cfg=mxfp8w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=613.96s gen_tok=24576 tok_s=40.0 req_s=0.156
+### cfg=bf16 ctx=2048 gpu=1 round=6
+THRUPUT cfg=bf16 N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=13 (min(maxseq,kv_fit)=13) | wall=259.98s gen_tok=65536 tok_s=252.1 req_s=0.985
+### cfg=mxfp8w_wkv ctx=16384 gpu=1 round=7
+THRUPUT cfg=mxfp8w_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=613.78s gen_tok=24576 tok_s=40.0 req_s=0.156
+### cfg=bf16 ctx=2048 gpu=1 round=7
+THRUPUT cfg=bf16 N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=13 (min(maxseq,kv_fit)=13) | wall=260.01s gen_tok=65536 tok_s=252.1 req_s=0.985
+### cfg=bf16 ctx=2048 gpu=2 round=1
+THRUPUT cfg=bf16 N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=13 (min(maxseq,kv_fit)=13) | wall=262.20s gen_tok=65536 tok_s=249.9 req_s=0.976
+### cfg=bf16 ctx=4096 gpu=2 round=1
+THRUPUT cfg=bf16 N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=7 (min(maxseq,kv_fit)=7) | wall=388.37s gen_tok=49152 tok_s=126.6 req_s=0.494
+### cfg=mxfp6w_wkv ctx=8192 gpu=2 round=1
+THRUPUT cfg=mxfp6w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=28 (min(maxseq,kv_fit)=28) | wall=422.93s gen_tok=32768 tok_s=77.5 req_s=0.303
+### cfg=mxfp8w_wkv ctx=8192 gpu=2 round=1
+THRUPUT cfg=mxfp8w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=403.26s gen_tok=32768 tok_s=81.3 req_s=0.317
+### cfg=bf16 ctx=2048 gpu=2 round=2
+THRUPUT cfg=bf16 N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=13 (min(maxseq,kv_fit)=13) | wall=262.55s gen_tok=65536 tok_s=249.6 req_s=0.975
+### cfg=bf16 ctx=4096 gpu=2 round=2
+THRUPUT cfg=bf16 N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=7 (min(maxseq,kv_fit)=7) | wall=388.25s gen_tok=49152 tok_s=126.6 req_s=0.495
+### cfg=mxfp6w_wkv ctx=8192 gpu=2 round=2
+THRUPUT cfg=mxfp6w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=28 (min(maxseq,kv_fit)=28) | wall=422.38s gen_tok=32768 tok_s=77.6 req_s=0.303
+### cfg=mxfp8w_wkv ctx=8192 gpu=2 round=2
+THRUPUT cfg=mxfp8w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=403.74s gen_tok=32768 tok_s=81.2 req_s=0.317
+### cfg=bf16 ctx=2048 gpu=2 round=3
+THRUPUT cfg=bf16 N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=13 (min(maxseq,kv_fit)=13) | wall=263.01s gen_tok=65536 tok_s=249.2 req_s=0.973
+### cfg=bf16 ctx=4096 gpu=2 round=3
+THRUPUT cfg=bf16 N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=7 (min(maxseq,kv_fit)=7) | wall=388.90s gen_tok=49152 tok_s=126.4 req_s=0.494
+### cfg=mxfp6w_wkv ctx=8192 gpu=2 round=3
+THRUPUT cfg=mxfp6w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=28 (min(maxseq,kv_fit)=28) | wall=424.00s gen_tok=32768 tok_s=77.3 req_s=0.302
+### cfg=mxfp8w_wkv ctx=8192 gpu=2 round=3
+THRUPUT cfg=mxfp8w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=404.23s gen_tok=32768 tok_s=81.1 req_s=0.317
+### cfg=bf16 ctx=2048 gpu=2 round=4
+### cfg=bf16 ctx=4096 gpu=2 round=4
+### cfg=mxfp6w_wkv ctx=8192 gpu=2 round=4
+### cfg=mxfp8w_wkv ctx=8192 gpu=2 round=4
+### cfg=bf16 ctx=2048 gpu=2 round=5
+### cfg=bf16 ctx=4096 gpu=2 round=5
+### cfg=mxfp6w_wkv ctx=8192 gpu=2 round=5
+### cfg=mxfp8w_wkv ctx=8192 gpu=2 round=5
+### cfg=mxfp8w_wkv ctx=8192 gpu=2 round=6
+THRUPUT cfg=mxfp8w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=401.39s gen_tok=32768 tok_s=81.6 req_s=0.319
+### cfg=bf16 ctx=4096 gpu=2 round=6
+THRUPUT cfg=bf16 N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=7 (min(maxseq,kv_fit)=7) | wall=387.80s gen_tok=49152 tok_s=126.7 req_s=0.495
+### cfg=mxfp8w_wkv ctx=2048 gpu=2 round=6
+THRUPUT cfg=mxfp8w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=225.28s gen_tok=65536 tok_s=290.9 req_s=1.136
+### cfg=mxfp8w_wkv ctx=8192 gpu=2 round=7
+THRUPUT cfg=mxfp8w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=402.30s gen_tok=32768 tok_s=81.5 req_s=0.318
+### cfg=bf16 ctx=4096 gpu=2 round=7
+THRUPUT cfg=bf16 N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=32240 kv_fit=7 (min(maxseq,kv_fit)=7) | wall=387.91s gen_tok=49152 tok_s=126.7 req_s=0.495
+### cfg=mxfp8w_wkv ctx=2048 gpu=2 round=7
+THRUPUT cfg=mxfp8w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=225.54s gen_tok=65536 tok_s=290.6 req_s=1.135
+### cfg=mxfp8w_wkv ctx=2048 gpu=3 round=1
+THRUPUT cfg=mxfp8w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=222.20s gen_tok=65536 tok_s=294.9 req_s=1.152
+### cfg=mxfp8w_wkv ctx=4096 gpu=3 round=1
+THRUPUT cfg=mxfp8w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=299.30s gen_tok=49152 tok_s=164.2 req_s=0.641
+### cfg=mxfp6w_wkv ctx=2048 gpu=3 round=1
+THRUPUT cfg=mxfp6w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=106 (min(maxseq,kv_fit)=106) | wall=221.45s gen_tok=65536 tok_s=295.9 req_s=1.156
+### cfg=mxfp6w_wkv ctx=4096 gpu=3 round=1
+THRUPUT cfg=mxfp6w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=56 (min(maxseq,kv_fit)=56) | wall=303.30s gen_tok=49152 tok_s=162.1 req_s=0.633
+### cfg=mxfp8w_wkv ctx=2048 gpu=3 round=2
+THRUPUT cfg=mxfp8w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=222.18s gen_tok=65536 tok_s=295.0 req_s=1.152
+### cfg=mxfp8w_wkv ctx=4096 gpu=3 round=2
+THRUPUT cfg=mxfp8w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=299.22s gen_tok=49152 tok_s=164.3 req_s=0.642
+### cfg=mxfp6w_wkv ctx=2048 gpu=3 round=2
+THRUPUT cfg=mxfp6w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=106 (min(maxseq,kv_fit)=106) | wall=221.56s gen_tok=65536 tok_s=295.8 req_s=1.155
+### cfg=mxfp6w_wkv ctx=4096 gpu=3 round=2
+THRUPUT cfg=mxfp6w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=56 (min(maxseq,kv_fit)=56) | wall=303.55s gen_tok=49152 tok_s=161.9 req_s=0.633
+### cfg=mxfp8w_wkv ctx=2048 gpu=3 round=3
+THRUPUT cfg=mxfp8w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=222.38s gen_tok=65536 tok_s=294.7 req_s=1.151
+### cfg=mxfp8w_wkv ctx=4096 gpu=3 round=3
+THRUPUT cfg=mxfp8w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=299.67s gen_tok=49152 tok_s=164.0 req_s=0.641
+### cfg=mxfp6w_wkv ctx=2048 gpu=3 round=3
+THRUPUT cfg=mxfp6w_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=106 (min(maxseq,kv_fit)=106) | wall=221.76s gen_tok=65536 tok_s=295.5 req_s=1.154
+### cfg=mxfp6w_wkv ctx=4096 gpu=3 round=3
+THRUPUT cfg=mxfp6w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=56 (min(maxseq,kv_fit)=56) | wall=303.56s gen_tok=49152 tok_s=161.9 req_s=0.632
+### cfg=mxfp8w_wkv ctx=2048 gpu=3 round=4
+### cfg=mxfp8w_wkv ctx=4096 gpu=3 round=4
+### cfg=mxfp6w_wkv ctx=2048 gpu=3 round=4
+### cfg=mxfp6w_wkv ctx=4096 gpu=3 round=4
+### cfg=mxfp8w_wkv ctx=2048 gpu=3 round=5
+### cfg=mxfp8w_wkv ctx=4096 gpu=3 round=5
+### cfg=mxfp6w_wkv ctx=2048 gpu=3 round=5
+### cfg=mxfp6w_wkv ctx=4096 gpu=3 round=5
+### cfg=mxfp6w_wkv ctx=8192 gpu=3 round=6
+THRUPUT cfg=mxfp6w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=28 (min(maxseq,kv_fit)=28) | wall=417.65s gen_tok=32768 tok_s=78.5 req_s=0.306
+### cfg=mxfp8w_wkv ctx=4096 gpu=3 round=6
+THRUPUT cfg=mxfp8w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=299.11s gen_tok=49152 tok_s=164.3 req_s=0.642
+### cfg=mxfp6w_wkv ctx=4096 gpu=3 round=6
+THRUPUT cfg=mxfp6w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=56 (min(maxseq,kv_fit)=56) | wall=303.31s gen_tok=49152 tok_s=162.1 req_s=0.633
+### cfg=mxfp6w_wkv ctx=8192 gpu=3 round=7
+THRUPUT cfg=mxfp6w_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=28 (min(maxseq,kv_fit)=28) | wall=418.22s gen_tok=32768 tok_s=78.4 req_s=0.306
+### cfg=mxfp8w_wkv ctx=4096 gpu=3 round=7
+THRUPUT cfg=mxfp8w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154768 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=298.91s gen_tok=49152 tok_s=164.4 req_s=0.642
+### cfg=mxfp6w_wkv ctx=4096 gpu=3 round=7
+THRUPUT cfg=mxfp6w_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=244928 kv_fit=56 (min(maxseq,kv_fit)=56) | wall=303.54s gen_tok=49152 tok_s=161.9 req_s=0.633
+### cfg=mxint8_wkv ctx=16384 gpu=0 round=1
+THRUPUT cfg=mxint8_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=613.04s gen_tok=24576 tok_s=40.1 req_s=0.157
+### cfg=ssnf_wkv ctx=2048 gpu=0 round=1
+THRUPUT cfg=ssnf_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=134 (min(maxseq,kv_fit)=134) | wall=164.39s gen_tok=65536 tok_s=398.7 req_s=1.557
+### cfg=mxint8_wkv ctx=16384 gpu=0 round=2
+THRUPUT cfg=mxint8_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=613.55s gen_tok=24576 tok_s=40.1 req_s=0.156
+### cfg=ssnf_wkv ctx=2048 gpu=0 round=2
+THRUPUT cfg=ssnf_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=134 (min(maxseq,kv_fit)=134) | wall=164.42s gen_tok=65536 tok_s=398.6 req_s=1.557
+### cfg=mxint8_wkv ctx=16384 gpu=0 round=3
+THRUPUT cfg=mxint8_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=613.07s gen_tok=24576 tok_s=40.1 req_s=0.157
+### cfg=ssnf_wkv ctx=2048 gpu=0 round=3
+THRUPUT cfg=ssnf_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=134 (min(maxseq,kv_fit)=134) | wall=164.26s gen_tok=65536 tok_s=399.0 req_s=1.558
+### cfg=mxint8_wkv ctx=16384 gpu=0 round=4
+THRUPUT cfg=mxint8_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=613.46s gen_tok=24576 tok_s=40.1 req_s=0.156
+### cfg=ssnf_wkv ctx=2048 gpu=0 round=4
+THRUPUT cfg=ssnf_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=134 (min(maxseq,kv_fit)=134) | wall=164.37s gen_tok=65536 tok_s=398.7 req_s=1.557
+### cfg=mxint8_wkv ctx=16384 gpu=0 round=5
+THRUPUT cfg=mxint8_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=9 (min(maxseq,kv_fit)=9) | wall=630.72s gen_tok=24576 tok_s=39.0 req_s=0.152
+### cfg=ssnf_wkv ctx=2048 gpu=0 round=5
+THRUPUT cfg=ssnf_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=134 (min(maxseq,kv_fit)=134) | wall=164.88s gen_tok=65536 tok_s=397.5 req_s=1.553
+### cfg=ssnf_wkv ctx=16384 gpu=1 round=1
+THRUPUT cfg=ssnf_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=476.30s gen_tok=24576 tok_s=51.6 req_s=0.202
+### cfg=mxint8_wkv ctx=2048 gpu=1 round=1
+THRUPUT cfg=mxint8_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=206.54s gen_tok=65536 tok_s=317.3 req_s=1.239
+### cfg=ssnf_wkv ctx=16384 gpu=1 round=2
+THRUPUT cfg=ssnf_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=475.91s gen_tok=24576 tok_s=51.6 req_s=0.202
+### cfg=mxint8_wkv ctx=2048 gpu=1 round=2
+THRUPUT cfg=mxint8_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=206.31s gen_tok=65536 tok_s=317.7 req_s=1.241
+### cfg=ssnf_wkv ctx=16384 gpu=1 round=3
+THRUPUT cfg=ssnf_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=475.91s gen_tok=24576 tok_s=51.6 req_s=0.202
+### cfg=mxint8_wkv ctx=2048 gpu=1 round=3
+THRUPUT cfg=mxint8_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=206.56s gen_tok=65536 tok_s=317.3 req_s=1.239
+### cfg=ssnf_wkv ctx=16384 gpu=1 round=4
+THRUPUT cfg=ssnf_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=476.08s gen_tok=24576 tok_s=51.6 req_s=0.202
+### cfg=mxint8_wkv ctx=2048 gpu=1 round=4
+THRUPUT cfg=mxint8_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=206.22s gen_tok=65536 tok_s=317.8 req_s=1.241
+### cfg=ssnf_wkv ctx=16384 gpu=1 round=5
+THRUPUT cfg=ssnf_wkv N=96 IN=16384 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=476.25s gen_tok=24576 tok_s=51.6 req_s=0.202
+### cfg=mxint8_wkv ctx=2048 gpu=1 round=5
+THRUPUT cfg=mxint8_wkv N=256 IN=2048 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=67 (min(maxseq,kv_fit)=67) | wall=206.53s gen_tok=65536 tok_s=317.3 req_s=1.240
+### cfg=mxint8_wkv ctx=8192 gpu=2 round=1
+THRUPUT cfg=mxint8_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=390.39s gen_tok=32768 tok_s=83.9 req_s=0.328
+### cfg=ssnf_wkv ctx=4096 gpu=2 round=1
+THRUPUT cfg=ssnf_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=71 (min(maxseq,kv_fit)=71) | wall=234.90s gen_tok=49152 tok_s=209.2 req_s=0.817
+### cfg=mxint8_wkv ctx=8192 gpu=2 round=2
+THRUPUT cfg=mxint8_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=391.70s gen_tok=32768 tok_s=83.7 req_s=0.327
+### cfg=ssnf_wkv ctx=4096 gpu=2 round=2
+THRUPUT cfg=ssnf_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=71 (min(maxseq,kv_fit)=71) | wall=233.83s gen_tok=49152 tok_s=210.2 req_s=0.821
+### cfg=mxint8_wkv ctx=8192 gpu=2 round=3
+THRUPUT cfg=mxint8_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=391.18s gen_tok=32768 tok_s=83.8 req_s=0.327
+### cfg=ssnf_wkv ctx=4096 gpu=2 round=3
+THRUPUT cfg=ssnf_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=71 (min(maxseq,kv_fit)=71) | wall=235.10s gen_tok=49152 tok_s=209.1 req_s=0.817
+### cfg=mxint8_wkv ctx=8192 gpu=2 round=4
+THRUPUT cfg=mxint8_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=391.16s gen_tok=32768 tok_s=83.8 req_s=0.327
+### cfg=ssnf_wkv ctx=4096 gpu=2 round=4
+THRUPUT cfg=ssnf_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=71 (min(maxseq,kv_fit)=71) | wall=234.32s gen_tok=49152 tok_s=209.8 req_s=0.819
+### cfg=mxint8_wkv ctx=8192 gpu=2 round=5
+THRUPUT cfg=mxint8_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=18 (min(maxseq,kv_fit)=18) | wall=391.22s gen_tok=32768 tok_s=83.8 req_s=0.327
+### cfg=ssnf_wkv ctx=4096 gpu=2 round=5
+THRUPUT cfg=ssnf_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=71 (min(maxseq,kv_fit)=71) | wall=234.66s gen_tok=49152 tok_s=209.5 req_s=0.818
+### cfg=ssnf_wkv ctx=8192 gpu=3 round=1
+THRUPUT cfg=ssnf_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=36 (min(maxseq,kv_fit)=36) | wall=300.51s gen_tok=32768 tok_s=109.0 req_s=0.426
+### cfg=mxint8_wkv ctx=4096 gpu=3 round=1
+THRUPUT cfg=mxint8_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=291.92s gen_tok=49152 tok_s=168.4 req_s=0.658
+### cfg=ssnf_wkv ctx=8192 gpu=3 round=2
+THRUPUT cfg=ssnf_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=36 (min(maxseq,kv_fit)=36) | wall=301.12s gen_tok=32768 tok_s=108.8 req_s=0.425
+### cfg=mxint8_wkv ctx=4096 gpu=3 round=2
+THRUPUT cfg=mxint8_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=291.89s gen_tok=49152 tok_s=168.4 req_s=0.658
+### cfg=ssnf_wkv ctx=8192 gpu=3 round=3
+THRUPUT cfg=ssnf_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=36 (min(maxseq,kv_fit)=36) | wall=300.49s gen_tok=32768 tok_s=109.0 req_s=0.426
+### cfg=mxint8_wkv ctx=4096 gpu=3 round=3
+THRUPUT cfg=mxint8_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=291.72s gen_tok=49152 tok_s=168.5 req_s=0.658
+### cfg=ssnf_wkv ctx=8192 gpu=3 round=4
+THRUPUT cfg=ssnf_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=36 (min(maxseq,kv_fit)=36) | wall=300.59s gen_tok=32768 tok_s=109.0 req_s=0.426
+### cfg=mxint8_wkv ctx=4096 gpu=3 round=4
+THRUPUT cfg=mxint8_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=291.56s gen_tok=49152 tok_s=168.6 req_s=0.659
+### cfg=ssnf_wkv ctx=8192 gpu=3 round=5
+THRUPUT cfg=ssnf_wkv N=128 IN=8192 OUT=256 maxseq=512 | pool_tok=309536 kv_fit=36 (min(maxseq,kv_fit)=36) | wall=300.81s gen_tok=32768 tok_s=108.9 req_s=0.426
+### cfg=mxint8_wkv ctx=4096 gpu=3 round=5
+THRUPUT cfg=mxint8_wkv N=192 IN=4096 OUT=256 maxseq=512 | pool_tok=154672 kv_fit=35 (min(maxseq,kv_fit)=35) | wall=291.89s gen_tok=49152 tok_s=168.4 req_s=0.658

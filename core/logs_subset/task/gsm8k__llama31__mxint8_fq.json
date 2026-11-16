@@ -1,0 +1,1 @@
+{"cfg": "mxint8_fq", "model": "NousResearch/Meta-Llama-3.1-8B", "nshot": 5, "n": 1319, "strict_acc": 0.5049, "strict_se": 0.0138, "flex_acc": 0.5034, "flex_se": 0.0138, "load_s": 13.8, "gen_s": 86.0}

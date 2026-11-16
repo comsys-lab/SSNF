@@ -1,0 +1,53 @@
+{
+  "cfg": "mxint8_fq",
+  "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "maxlen": 4096,
+  "chat": true,
+  "rouge_impl": "rouge-pkg",
+  "per_task": {
+    "qasper": 41.88,
+    "qmsum": 22.47,
+    "multi_news": 27.08,
+    "trec": 68.0,
+    "triviaqa": 88.83,
+    "samsum": 44.13,
+    "lcc": 62.7,
+    "repobench-p": 54.73,
+    "hotpotqa": 41.57,
+    "2wikimqa": 39.35,
+    "musique": 20.41,
+    "passage_retrieval_en": 37.5
+  },
+  "per_task_se": {
+    "qasper": 2.63,
+    "qmsum": 0.48,
+    "multi_news": 0.43,
+    "trec": 3.31,
+    "triviaqa": 1.98,
+    "samsum": 1.15,
+    "lcc": 1.41,
+    "repobench-p": 1.37,
+    "hotpotqa": 3.16,
+    "2wikimqa": 3.19,
+    "musique": 2.62,
+    "passage_retrieval_en": 3.43
+  },
+  "avg": 45.72,
+  "avg_se": 0.68,
+  "counts": {
+    "qasper": 200,
+    "qmsum": 200,
+    "multi_news": 200,
+    "trec": 200,
+    "triviaqa": 200,
+    "samsum": 200,
+    "lcc": 500,
+    "repobench-p": 500,
+    "hotpotqa": 200,
+    "2wikimqa": 200,
+    "musique": 200,
+    "passage_retrieval_en": 200
+  },
+  "load_s": 14.8,
+  "eval_s": 3015.7
+}

@@ -1,0 +1,18 @@
+{
+  "model": "Llama-2-13B",
+  "corpus": "WikiText-2 test",
+  "runtime": "BF16, sharded over two 24 GB GPUs",
+  "bf16": {
+    "ppl": 4.429606203264952,
+    "target_count": 338533,
+    "windows": 330,
+    "raw_summary_sha256": "98c741a31acbcf9347f9d6dbeb04345942bbe9e2faff0af9cdcdaebf70f34d81"
+  },
+  "ssnf_f11": {
+    "ppl": 4.474411540971437,
+    "target_count": 338533,
+    "windows": 330,
+    "raw_summary_sha256": "866e4cfea82bc43c84e5f6d38fa9970c4fff93e472cf107cff978ac06cc7730a",
+    "ppl_increase_pct": 1.0114970868846163
+  }
+}

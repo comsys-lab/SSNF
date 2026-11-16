@@ -1,0 +1,18 @@
+
+# HEADLINE QSNR+PPL — mistralai/Mistral-7B-v0.3
+# wikitext-2 (331,726 tok), 322w 2048/1024, sdpa, no-rot
+# SSNF: W u3/gs8(5.62b) K act-mean u3/gs16(5.44b) V arith u4/gs32(4.38b) KVavg 4.91b
+# MXINTn: per-32 E8M0, signed n-bit, bpe = n+0.25
+
+BF16 PPL = 4.8315
+
+
+## PPL — W+KV (weights + KV quantized)
+BF16                  4.8315
+SSNF W+KV SSNF offs={0}     4.8796 (+1.00%)
+SSNF W+KV SSNF offs={-1,0}  4.8762 (+0.93%)
+MXINT8 (8.25b)     4.8330 (+0.03%)
+MXINT7 (7.25b)     4.8382 (+0.14%)
+MXINT6 (6.25b)     4.8523 (+0.43%)
+MXINT5 (5.25b)     4.9124 (+1.67%)
+MXINT4 (4.25b)     5.1981 (+7.59%)

@@ -1,0 +1,196 @@
+diff --git a/kernels/csrc/fused_attention/fused_attention_fine_grained/dense_attention/decoderMaskedMultiheadAttentionTemplate.hpp b/kernels/csrc/fused_attention/fused_attention_fine_grained/dense_attention/decoderMaskedMultiheadAttentionTemplate.hpp
+index f712972..a77eb84 100644
+--- a/kernels/csrc/fused_attention/fused_attention_fine_grained/dense_attention/decoderMaskedMultiheadAttentionTemplate.hpp
++++ b/kernels/csrc/fused_attention/fused_attention_fine_grained/dense_attention/decoderMaskedMultiheadAttentionTemplate.hpp
+@@ -1,3 +1,4 @@
++#include <cuda/functional>
+ // Inspired by TRT-LLM.
+ // Modified by Haotian Tang and Shang Yang.
+ // @article{lin2024qserve,
+@@ -2288,7 +2289,7 @@ if constexpr (ENABLE_4BITS_CACHE && ENABLE_ZEROS)
+                 __shared__ typename BlockReduce::TempStorage temp_storage;
+                 // Obtain a segment of consecutive items that are blocked across threads (final_max from above)
+                 // Compute the block-wide max for thread0
+-                final_max = BlockReduce(temp_storage).Reduce(thread_partial_max, cub::Max(), gridDim.z);
++                final_max = BlockReduce(temp_storage).Reduce(thread_partial_max, cuda::maximum<>(), gridDim.z);
+ 
+                 __shared__ float final_max_smem;
+                 if (tidx == 0)
+diff --git a/omniserve/__init__.py b/omniserve/__init__.py
+index 4669010..321a4da 100644
+--- a/omniserve/__init__.py
++++ b/omniserve/__init__.py
+@@ -1,13 +1,2 @@
+-"""vLLM: a high-throughput and memory-efficient inference engine for LLMs"""
+-
+-from omniserve.engine.arg_utils import EngineArgs
+-from omniserve.engine.llm_engine import LLMEngine
+-from omniserve.sampling_params import SamplingParams
+-
++"""Evaluation-only package entry; serving scheduler is not imported."""
+ __version__ = "0.3.1"
+-
+-__all__ = [
+-    "SamplingParams",
+-    "LLMEngine",
+-    "EngineArgs",
+-]
+diff --git a/omniserve/modeling/layers/ctx_attn/ctx_attn_func.py b/omniserve/modeling/layers/ctx_attn/ctx_attn_func.py
+index a63eb9d..2f9b5f5 100644
+--- a/omniserve/modeling/layers/ctx_attn/ctx_attn_func.py
++++ b/omniserve/modeling/layers/ctx_attn/ctx_attn_func.py
+@@ -1,74 +1,7 @@
+-import torch
+-from itertools import count
+-from block_sparse_attn import (
+-    token_streaming_attn_func,
+-    block_streaming_attn_func,
+-    flash_attn_varlen_func
+-)
+-
+-def attention_wrapper(
+-    q_unpad, k_unpad, v_unpad,
+-    cu_seqlens_q, cu_seqlens_k,
+-    max_seqlen_q, max_seqlen_k,
+-    dropout_p=0.0, causal=True,
+-    head_mask_type = None,
+-    streaming_info = None,
+-):
+-    if head_mask_type is not None and streaming_info is not None:
+-        attn_output = token_static_sparse_attn(
+-                        q_unpad, k_unpad, v_unpad,
+-                        cu_seqlens_q, cu_seqlens_k,
+-                        max_seqlen_q, max_seqlen_k,
+-                        head_mask_type, streaming_info
+-                    )
+-    else: #dense case
+-        attn_output = dense_context_attn(
+-                        q_unpad, k_unpad, v_unpad,
+-                        cu_seqlens_q, cu_seqlens_k,
+-                        max_seqlen_q, max_seqlen_k,
+-                        dropout_p, causal
+-                    )
+-    return attn_output
+-        
+-def dense_context_attn(
+-    q_unpad, k_unpad, v_unpad,
+-    cu_seqlens_q, cu_seqlens_k,
+-    max_seqlen_q, max_seqlen_k,
+-    dropout_p, causal
+-):
+-    attn_output = flash_attn_varlen_func(
+-                q_unpad, k_unpad, v_unpad,
+-                cu_seqlens_q, cu_seqlens_k,
+-                max_seqlen_q, max_seqlen_k,
+-                dropout_p=dropout_p,
+-                causal=causal,
+-            )
+-    return attn_output
+-
+-def block_static_sparse_attn(
+-    q_unpad, k_unpad, v_unpad,
+-    cu_seqlens_q, cu_seqlens_k,
+-    max_seqlen_q, max_seqlen_k,
+-    head_mask_type, streaming_info
+-):
+-    attn_output = block_streaming_attn_func(
+-                q_unpad, k_unpad, v_unpad,
+-                cu_seqlens_q, cu_seqlens_k,
+-                head_mask_type, streaming_info,
+-                max_seqlen_q, max_seqlen_k,
+-            )
+-    return attn_output
+-
+-def token_static_sparse_attn(
+-    q_unpad, k_unpad, v_unpad,
+-    cu_seqlens_q, cu_seqlens_k,
+-    max_seqlen_q, max_seqlen_k,
+-    head_mask_type, streaming_info
+-):
+-    attn_output = token_streaming_attn_func(
+-                q_unpad, k_unpad, v_unpad,
+-                cu_seqlens_q, cu_seqlens_k,
+-                head_mask_type, streaming_info,
+-                max_seqlen_q, max_seqlen_k,
+-            )
+-    return attn_output
+\ No newline at end of file
++"""Exact one-token prompt attention for teacher-forced evaluation."""
++def attention_wrapper(q_unpad,k_unpad,v_unpad,cu_seqlens_q,cu_seqlens_k,max_seqlen_q,max_seqlen_k,dropout_p=0.0,causal=True,head_mask_type=None,streaming_info=None):
++    assert max_seqlen_q==max_seqlen_k==1 and dropout_p==0 and causal
++    assert head_mask_type is None and streaming_info is None
++    assert q_unpad.shape==k_unpad.shape==v_unpad.shape
++    # A single causal position has attention probability exactly one.
++    return v_unpad.clone()
+diff --git a/omniserve/modeling/layers/ctx_update_kv.py b/omniserve/modeling/layers/ctx_update_kv.py
+index f791540..264fa94 100644
+--- a/omniserve/modeling/layers/ctx_update_kv.py
++++ b/omniserve/modeling/layers/ctx_update_kv.py
+@@ -1,8 +1,14 @@
+ from typing import Dict, List, Optional
+ import torch
+ import omniserve_backend.fused_attention_fine_grained_dense as fused_attention_fine_grained_dense
+-import omniserve_backend.fused_attention_per_tensor_dense as fused_attention_per_tensor_dense
+-import omniserve_backend.fused_attention_ctx_pool as fused_attention_ctx_pool
++try:
++    import omniserve_backend.fused_attention_per_tensor_dense as fused_attention_per_tensor_dense
++except ImportError:
++    pass  # Optional sparse/per-tensor backend; this evaluation selects dense fine-grained KV4.
++try:
++    import omniserve_backend.fused_attention_ctx_pool as fused_attention_ctx_pool
++except ImportError:
++    pass  # Optional sparse/per-tensor backend; this evaluation selects dense fine-grained KV4.
+ 
+ class ApplyBiasRopeUpdateKVCacheWrapper(torch.nn.Module):
+     def __init__(
+diff --git a/omniserve/modeling/layers/decoding_attention.py b/omniserve/modeling/layers/decoding_attention.py
+index 761d2c0..367a85e 100644
+--- a/omniserve/modeling/layers/decoding_attention.py
++++ b/omniserve/modeling/layers/decoding_attention.py
+@@ -3,10 +3,22 @@ from typing import Dict, List, Optional
+ import os
+ import torch
+ import omniserve_backend.fused_attention_fine_grained_dense as fused_attention_fine_grained_dense
+-import omniserve_backend.fused_attention_fine_grained_sparse as fused_attention_fine_grained_sparse
+-import omniserve_backend.fused_attention_per_tensor_dense as fused_attention_per_tensor_dense
+-import omniserve_backend.fused_attention_per_tensor_sparse as fused_attention_per_tensor_sparse
+-import omniserve_backend.fused_attention_selector as fused_attention_selector
++try:
++    import omniserve_backend.fused_attention_fine_grained_sparse as fused_attention_fine_grained_sparse
++except ImportError:
++    pass  # Optional sparse/per-tensor backend; this evaluation selects dense fine-grained KV4.
++try:
++    import omniserve_backend.fused_attention_per_tensor_dense as fused_attention_per_tensor_dense
++except ImportError:
++    pass  # Optional sparse/per-tensor backend; this evaluation selects dense fine-grained KV4.
++try:
++    import omniserve_backend.fused_attention_per_tensor_sparse as fused_attention_per_tensor_sparse
++except ImportError:
++    pass  # Optional sparse/per-tensor backend; this evaluation selects dense fine-grained KV4.
++try:
++    import omniserve_backend.fused_attention_selector as fused_attention_selector
++except ImportError:
++    pass  # Optional sparse/per-tensor backend; this evaluation selects dense fine-grained KV4.
+ import omniserve_backend.fused_attention_pure_dense as fused_attention_pure_dense
+ 
+ 
+diff --git a/omniserve/modeling/layers/quantized_linear/__init__.py b/omniserve/modeling/layers/quantized_linear/__init__.py
+index cf5cc87..3a54c6b 100644
+--- a/omniserve/modeling/layers/quantized_linear/__init__.py
++++ b/omniserve/modeling/layers/quantized_linear/__init__.py
+@@ -1,3 +1 @@
+-from .w8a8_linear import *
+ from .w4a8_linear import *
+-from .w4a8_moe_linear import *
+diff --git a/omniserve/modeling/models/llama_w4a8_unpad.py b/omniserve/modeling/models/llama_w4a8_unpad.py
+index 5b9e92a..10f8231 100644
+--- a/omniserve/modeling/models/llama_w4a8_unpad.py
++++ b/omniserve/modeling/models/llama_w4a8_unpad.py
+@@ -33,7 +33,6 @@ import omniserve_backend.fused_attention_fine_grained_dense as fused_attention
+ 
+ # import gc
+ import torch
+-from flash_attn.flash_attn_interface import flash_attn_varlen_func
+ from omniserve_backend import fused_kernels
+ from torch import nn
+ from transformers import LlamaConfig

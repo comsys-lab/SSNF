@@ -1,0 +1,6 @@
+key,method,quantization_scope,weight_activation_dtype,ppl,nll,targets,windows,batch,raw_results,ppl_increase_vs_bf16_pct,ppl_increase_vs_fp16_pct
+bf16,BF16 baseline,unquantized,bfloat16,4.95101932356011,541516.7789324195,338534,330,1,<local>/bf16,0.0,0.02902817189700535
+fp16,FP16 baseline,unquantized,float16,4.949582550229245,541418.522961236,338534,330,1,<local>/fp16,-0.029019747994685208,0.0
+ssnf_wkv,SSNF weight+KV,weight+KV,bfloat16,5.011529352923367,545629.1712223442,338534,330,1,<local>/ssnf_wkv,1.222173160894613,1.2515561073176418
+qserve4,QServe W4A8KV4,weight+activation+KV,"W4A8, FP16 interfaces",5.254765441351382,561673.7326721142,338534,330,32,<local>/qserve4,6.13502185996031,6.165830916548765
+qserve4g128,QServe W4A8KV4 g128,weight+activation+KV,"W4A8, FP16 interfaces",5.119876603392536,552870.1457974662,338534,330,32,<local>/qserve4g128,3.4105558632925304,3.44057405720819

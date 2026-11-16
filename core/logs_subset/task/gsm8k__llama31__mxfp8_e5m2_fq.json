@@ -1,0 +1,1 @@
+{"cfg": "mxfp8_e5m2_fq", "model": "NousResearch/Meta-Llama-3.1-8B", "nshot": 5, "n": 1319, "strict_acc": 0.4716, "strict_se": 0.0137, "flex_acc": 0.4708, "flex_se": 0.0137, "load_s": 13.1, "gen_s": 62.7}

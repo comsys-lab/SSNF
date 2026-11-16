@@ -1,0 +1,1 @@
+{"cfg": "mxfp6_e3m2_fq", "model": "NousResearch/Meta-Llama-3.1-8B", "nshot": 5, "n": 1319, "strict_acc": 0.4784, "strict_se": 0.0138, "flex_acc": 0.4799, "flex_se": 0.0138, "load_s": 12.4, "gen_s": 60.1}

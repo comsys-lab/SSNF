@@ -1,0 +1,1 @@
+{"cfg": "mxfp8_fq", "model": "mistralai/Mistral-7B-v0.3", "nshot": 5, "n": 1319, "strict_acc": 0.3457, "strict_se": 0.0131, "flex_acc": 0.345, "flex_se": 0.0131, "load_s": 10.7, "gen_s": 107.1}

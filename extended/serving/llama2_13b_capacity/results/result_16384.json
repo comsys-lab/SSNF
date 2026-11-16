@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "context": 16384,
+  "output_tokens": 256,
+  "gpu_uuid": "GPU-706a8f16-d541-2ccd-8dd9-202eca9eb480",
+  "SSNF": {
+    "batch": 2,
+    "decode_tokens_per_second": 26.721455342940153,
+    "whole_run_output_tokens_per_second": 15.752214472432165,
+    "timing_trials": 3,
+    "independent_model_reloads": 1
+  },
+  "MXFP6": {
+    "batch": 1,
+    "decode_tokens_per_second": 14.960428074483463,
+    "whole_run_output_tokens_per_second": 9.80063319931148,
+    "timing_trials": 3,
+    "independent_model_reloads": 1
+  },
+  "common_batch_one": {
+    "SSNF": {
+      "batch": 1,
+      "decode_tokens_per_second": 19.19200013020873,
+      "whole_run_output_tokens_per_second": 12.788234100815178,
+      "timing_trials": 3,
+      "independent_model_reloads": 1
+    },
+    "MXFP6": {
+      "batch": 1,
+      "decode_tokens_per_second": 14.960428074483463,
+      "whole_run_output_tokens_per_second": 9.80063319931148,
+      "timing_trials": 3,
+      "independent_model_reloads": 1
+    }
+  },
+  "timing_scope": "prefill barrier diagnostic; decode metric and total generation metric reported separately",
+  "idle_background_contexts": true,
+  "SSNF_batch_ratio": 2.0,
+  "SSNF_maximum_batch_decode_ratio": 1.7861424292073782
+}

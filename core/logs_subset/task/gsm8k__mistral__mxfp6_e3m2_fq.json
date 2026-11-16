@@ -1,0 +1,1 @@
+{"cfg": "mxfp6_e3m2_fq", "model": "mistralai/Mistral-7B-v0.3", "nshot": 5, "n": 1319, "strict_acc": 0.3283, "strict_se": 0.0129, "flex_acc": 0.3298, "flex_se": 0.0129, "load_s": 10.3, "gen_s": 79.3}

@@ -1,0 +1,50 @@
+{
+  "status": "complete",
+  "stage": "validation",
+  "valid_unique_examples": 96,
+  "all_completed_examples": 96,
+  "tasks": {
+    "qasper": 24.72222222222222,
+    "qmsum": 25.945537800404832,
+    "multi_news": 26.024661021533923,
+    "trec": 75.0,
+    "triviaqa": 97.5,
+    "samsum": 43.07491131141418,
+    "lcc": 77.78649496378031,
+    "repobench-p": 42.97085826501973,
+    "hotpotqa": 34.375,
+    "2wikimqa": 49.583333333333336,
+    "musique": 18.75,
+    "passage_retrieval_en": 100.0
+  },
+  "macro_score": 51.31108490980905,
+  "validation_only": true,
+  "protocol_hash": "f154cbd38b7e8fb72a18f5aa0b523f99beeda4183fd00aada923cfd731693524",
+  "frozen_map_sha256": "6012f1809c422f59e2adba3fd5f34ce8b8c2399018b28b3361823ed1ad6cb797",
+  "accounting": {
+    "2048": {
+      "planes": {
+        "w": 5015346204,
+        "k": 45614084,
+        "v": 37225476
+      },
+      "total": 5098185764,
+      "cap": 5100282880,
+      "slack": 2097116
+    },
+    "16384": {
+      "planes": {
+        "w": 5015346204,
+        "k": 364905476,
+        "v": 297796612
+      },
+      "total": 5678048292,
+      "cap": 5687485440,
+      "slack": 9437148
+    }
+  },
+  "probes_passed": 288,
+  "total_seconds": 572.0961685180664,
+  "peak_gpu_allocated_bytes": 20197136384,
+  "updated_unix": 1793388944.9466615
+}

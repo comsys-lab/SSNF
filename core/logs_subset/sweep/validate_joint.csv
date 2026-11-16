@@ -1,0 +1,2 @@
+model,w_lb,w_gs,k_lb,k_gs,v_lb,v_gs,w_bpe,kv_bpe,w_bpe_aligned,kv_bpe_aligned,bf16,ppl_kv_only,d_kv_pct,ppl_wkv,d_wkv_pct,secs
+NousResearch/Meta-Llama-3.1-8B,3,8,3,16,4,32,5.6250,4.9062,5.7500,5.0000,5.349288,5.424417,1.4045,5.506999,2.9483,54.6

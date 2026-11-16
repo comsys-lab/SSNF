@@ -1,0 +1,1 @@
+{"cfg": "ssnf_fq", "model": "NousResearch/Llama-2-7b-hf", "nshot": 5, "n": 1319, "strict_acc": 0.1296, "strict_se": 0.0092, "flex_acc": 0.1296, "flex_se": 0.0092, "load_s": 216.7, "gen_s": 112.1}

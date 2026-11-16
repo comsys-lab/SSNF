@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "abi": "SSN2",
+  "block_size": 32,
+  "ssnf": {
+    "upper_bits": 5,
+    "shared_bits": 3,
+    "group_size": 8
+  },
+  "source": {
+    "lfsr_width": 64,
+    "lfsr_banks": 6,
+    "galois_mask": "d800000000000000",
+    "state_bits": 384,
+    "encoded_register_bank": true,
+    "exponent_range": [
+      -4,
+      3
+    ],
+    "upper_minus16_mapping": -15
+  },
+  "clock_target_mhz": 100,
+  "max_replicas": 16,
+  "baseline": "source and encoder active; arithmetic inputs clamped and CE disabled",
+  "output_capture": "core final register; no duplicate last-result bank or rolling checksum",
+  "images": "three static formats, each with same-image compute ON/OFF",
+  "synthesis_boundary": "KEEP_HIERARCHY on source and arithmetic instances to prevent cross-boundary logic movement",
+  "measurement_active_replicas": 8,
+  "compiled_replicas_by_format": {
+    "ssnf": 16,
+    "mxint8": 16,
+    "bf16": 8
+  },
+  "measured_rtl_version": "verification_release_b; all nine RTL files match packaged sources of all three selected images"
+}
